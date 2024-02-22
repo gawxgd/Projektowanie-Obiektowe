@@ -137,10 +137,10 @@ public class Flight : FtrObject
 public abstract class CreatorFTR
 {
     public abstract IFtr Create(string[] ObjectParameters);
-    protected void TestIfAllArguments(Type type,int ArgumentsFromFileCount)
+    protected void TestIfAllArguments(int FieldCount,int ArgumentsFromFileCount)
     {
-        int NumberOfRecords = type.GetFields().Length;
-        if (NumberOfRecords != ArgumentsFromFileCount)
+
+        if (FieldCount != ArgumentsFromFileCount)
         {
             throw new ArgumentException("invalid number of arguments");
         }
@@ -150,7 +150,7 @@ public class CrewCreator : CreatorFTR
 {   
     public override Crew Create(string[] ObjectParameters)
     {
-        TestIfAllArguments(typeof(Crew),ObjectParameters.Length);
+        TestIfAllArguments(8,ObjectParameters.Length);
         
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -168,7 +168,7 @@ public class PassengerCreator : CreatorFTR
 {
     public override Passenger Create(string[] ObjectParameters)
     {
-        TestIfAllArguments(typeof(Passenger), ObjectParameters.Length);
+        TestIfAllArguments(8, ObjectParameters.Length);
 
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -186,7 +186,7 @@ public class CargoCreator : CreatorFTR
 {
     public override Cargo Create(string[] ObjectParameters)
     {
-        TestIfAllArguments(typeof(Cargo), ObjectParameters.Length);
+        TestIfAllArguments(5, ObjectParameters.Length);
 
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -200,7 +200,7 @@ public class CargoPlaneCreator : CreatorFTR
 {
     public override CargoPlane Create(string[] ObjectParameters)
     {
-        TestIfAllArguments(typeof(CargoPlane), ObjectParameters.Length);
+        TestIfAllArguments(6, ObjectParameters.Length);
 
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -216,7 +216,7 @@ public class PassengerPlaneCreator : CreatorFTR
 {
     public override PassengerPlane Create(string[] ObjectParameters)
     {
-        TestIfAllArguments(typeof(PassengerPlane), ObjectParameters.Length);
+        TestIfAllArguments(8, ObjectParameters.Length);
 
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -234,7 +234,7 @@ public class AirportCreator : CreatorFTR
 {
     public override Airport Create(string[] ObjectParameters)
     {
-        TestIfAllArguments(typeof(Airport), ObjectParameters.Length);
+        TestIfAllArguments(8, ObjectParameters.Length);
 
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -252,7 +252,7 @@ public class AirportCreator : CreatorFTR
     {
         public override Flight Create(string[] ObjectParameters)
         {
-            TestIfAllArguments(typeof(Flight), ObjectParameters.Length);
+            TestIfAllArguments(12, ObjectParameters.Length);
 
             string ClassName = ObjectParameters[0];
             UInt64 ID = UInt64.Parse(ObjectParameters[1]);

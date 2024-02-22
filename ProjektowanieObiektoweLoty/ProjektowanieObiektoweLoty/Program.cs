@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ProjektowanieObiektoweLoty
@@ -17,6 +18,13 @@ namespace ProjektowanieObiektoweLoty
         static PassengerPlaneCreator PassengerPlaneFactory;
         static AirportCreator AirportFactory;
         static FlightCreator FlightFactory;
+        public static List<Crew> CrewObjectList;
+        public static List<Passenger> PassengerObjectList;
+        public static List<Cargo> CargoObjectList;
+        public static List<CargoPlane> CargoPlaneObjectList;
+        public static List<PassengerPlane> PassengerPlaneObjectList;
+        public static List<Airport> AirportObjectList;
+        public static List<Flight> FlightObjectList;
         private static void ReadFromFtrFile(string FilePathArg)
         {
             String line;
@@ -32,36 +40,39 @@ namespace ProjektowanieObiektoweLoty
                    
                     string[] ObjectParameters = line.Split(',');
                     string ClassShortName = ObjectParameters[0];
-                    switch (ClassShortName)
+                    try
                     {
-                        case "C":
-                            Crew CrewObject = CrewFactory.Create(ObjectParameters);
-                            Console.WriteLine(CrewObject.Name);
-                            break;
-                        case "P":
-                            Passenger PassengerObject = PassengerFactory.Create(ObjectParameters);
-                            Console.WriteLine(PassengerObject.Name);
-                            break;
-                        case "CA":
-                            Cargo CargoObject = CargoFactory.Create(ObjectParameters);
-                            Console.WriteLine(CargoObject.Description);
-                            break;
-                        case "CP":
-                            CargoPlane CargoPlaneObject = CarogPlaneFactory.Create(ObjectParameters);
-                            Console.WriteLine(CargoPlaneObject.model);
-                            break;
-                        case "PP":
-                            PassengerPlane PassengerPlaneObject = PassengerPlaneFactory.Create(ObjectParameters);
-                            Console.WriteLine(PassengerPlaneObject.model);
-                            break;
-                        case "AI":
-                            Airport AirportObject = AirportFactory.Create(ObjectParameters);
-                            Console.WriteLine(AirportObject.Name);
-                            break;
-                        case "FL":
-                            Flight FlightObject = FlightFactory.Create(ObjectParameters);
-                            Console.WriteLine(FlightObject.ID);
-                            break;    
+                        switch (ClassShortName)
+                        {
+                            case "C":
+                                CrewObjectList.Add(CrewFactory.Create(ObjectParameters));
+                 
+                                break;
+                            case "P":
+                                PassengerObjectList.Add(PassengerFactory.Create(ObjectParameters));
+                                
+                                break;
+                            case "CA":
+                                CargoObjectList.Add(CargoFactory.Create(ObjectParameters));
+                                break;
+                            case "CP":
+                                CargoPlaneObjectList.Add(CarogPlaneFactory.Create(ObjectParameters));
+                                break;
+                            case "PP":
+                                PassengerPlaneObjectList.Add(PassengerPlaneFactory.Create(ObjectParameters));
+                                break;
+                            case "AI":
+                                AirportObjectList.Add(AirportFactory.Create(ObjectParameters));
+                                break;
+                            case "FL":
+                                FlightObjectList.Add(FlightFactory.Create(ObjectParameters));
+                                break;
+
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine("Exception: " + e.Message);
 
                     }
 
@@ -72,15 +83,12 @@ namespace ProjektowanieObiektoweLoty
                 sr.Close();
                 
             }
+            
             catch (Exception e)
             {
                 Console.WriteLine("Exception: " + e.Message);
-                Console.WriteLine(e.StackTrace);
             }
-            finally
-            {
-                Console.WriteLine("Executing finally block.");
-            }
+            
             
         }
         private static void CreateFactoryClasses()
@@ -91,16 +99,66 @@ namespace ProjektowanieObiektoweLoty
             CarogPlaneFactory = new CargoPlaneCreator();
             PassengerPlaneFactory = new PassengerPlaneCreator();
             AirportFactory = new AirportCreator();
-            FlightFactory = new FlightCreator();
-            
+            FlightFactory = new FlightCreator();         
+        }
+        public static void Serialize()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(SerializeList(AirportObjectList));
+            sb.Append("\n");
+            sb.Append(SerializeList(CargoPlaneObjectList));
+            sb.Append("\n");
+            sb.Append(SerializeList(PassengerPlaneObjectList));
+            sb.Append("\n");
+            sb.Append(SerializeList(CargoObjectList));
+            sb.Append("\n");
+            sb.Append(SerializeList(CrewObjectList));
+            sb.Append("\n");
+            sb.Append(SerializeList(PassengerObjectList));
+            sb.Append("\n");
+            sb.Append(SerializeList(FlightObjectList));
+            sb.Append("\n");
+            string jsonString = sb.ToString();
+            using (StreamWriter outputFile = new StreamWriter("jsonSerialize.json"))
+            {
+               outputFile.Write(jsonString);
+            }
+
+        }
+        public static string SerializeList<T>(List<T> ObjectList)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(var Object in ObjectList)
+            {
+                sb.Append(Newtonsoft.Json.JsonConvert.SerializeObject(Object));
+                sb.Append("\n");
+            }
+            return sb.ToString();
+        }
+        private static void InitializeLists()
+        {
+            CrewObjectList = new List<Crew>();
+            PassengerObjectList = new List<Passenger>();
+            CargoObjectList = new List<Cargo>();
+            CargoPlaneObjectList = new List<CargoPlane>();
+            PassengerPlaneObjectList = new List<PassengerPlane>();
+            AirportObjectList = new List<Airport>();
+            FlightObjectList = new List<Flight>();
+        }
+        private static void SetCulture()
+        {
+            CultureInfo newCulture = new CultureInfo("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = newCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = newCulture;
         }
         static void Main()
         {
-            CultureInfo newCulture = new CultureInfo("en-US"); 
-            CultureInfo.DefaultThreadCurrentCulture = newCulture;
-            CultureInfo.DefaultThreadCurrentUICulture = newCulture;
+            SetCulture();
+            InitializeLists();
             CreateFactoryClasses();
             ReadFromFtrFile(FilePath);
+            Serialize();
+            
         }
     }
 }

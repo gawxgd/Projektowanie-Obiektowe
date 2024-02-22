@@ -26,3 +26,6 @@ C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLo
 C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.pdb
 C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.genruntimeconfig.cache
 C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ref\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.csproj.AssemblyReference.cache
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.csproj.CopyComplete

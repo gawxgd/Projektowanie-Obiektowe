@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "VT9VlgDU6f/v54Q+4ghxmph0oZASxkjkedD074jeYnov++AqSHAjZI1pCtdpMTzshEHBkKFz0Yyjc9YUHy4Xpw==",
+  "dgSpecHash": "Az8A+hHtfpQXeLKxS+iZpdcccuSy4Qlbw0g+9N70sB8s12XpfxShCkvoqiHgFOc9RVNid06s0EW5ylr1pgvvTQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marci\\source\\repos\\ProjektowanieObiektoweLoty\\ProjektowanieObiektoweLoty\\ProjektowanieObiektoweLoty.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\marci\\Documents\\GitHub\\Projektowanie-Obiektowe\\ProjektowanieObiektoweLoty\\ProjektowanieObiektoweLoty\\ProjektowanieObiektoweLoty.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marci\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.5\\microsoft.windowsdesktop.app.ref.7.0.5.nupkg.sha512",
+    "C:\\Users\\marci\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.5\\microsoft.netcore.app.ref.7.0.5.nupkg.sha512",
+    "C:\\Users\\marci\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.5\\microsoft.aspnetcore.app.ref.7.0.5.nupkg.sha512"
+  ],
   "logs": []
 }

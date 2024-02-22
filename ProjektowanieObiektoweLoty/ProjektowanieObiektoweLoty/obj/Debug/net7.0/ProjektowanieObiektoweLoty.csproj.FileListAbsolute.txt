@@ -12,3 +12,17 @@ C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLot
 C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.pdb
 C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.genruntimeconfig.cache
 C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ref\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.exe
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.deps.json
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.runtimeconfig.json
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.pdb
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.AssemblyInfoInputs.cache
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.AssemblyInfo.cs
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.csproj.CoreCompileInputs.cache
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\refint\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.pdb
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.genruntimeconfig.cache
+C:\Users\marci\Documents\GitHub\Projektowanie-Obiektowe\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ref\ProjektowanieObiektoweLoty.dll

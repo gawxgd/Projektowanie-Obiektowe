@@ -1,4 +1,6 @@
-﻿public interface IFtr
+﻿using System.Globalization;
+
+public interface IFtr
 { }
 public abstract class FtrObject : IFtr
 {
@@ -38,9 +40,9 @@ public abstract class Plane : FtrObject
 }
 public class Crew : Human
 {
-    public string Practice;
+    public UInt16 Practice;
     public string Role;
-    public Crew(string className, UInt64 iD, string name, UInt64 age, string phone, string email,string practice, string role) : base(className,iD,name,age,phone,email)
+    public Crew(string className, UInt64 iD, string name, UInt64 age, string phone, string email,UInt16 practice, string role) : base(className,iD,name,age,phone,email)
     {
         Practice = practice;
         Role = role;
@@ -135,20 +137,20 @@ public class Flight : FtrObject
 public abstract class CreatorFTR
 {
     public abstract IFtr Create(string[] ObjectParameters);
+    protected void TestIfAllArguments(Type type,int ArgumentsFromFileCount)
+    {
+        int NumberOfRecords = type.GetFields().Length;
+        if (NumberOfRecords != ArgumentsFromFileCount)
+        {
+            throw new ArgumentException("invalid number of arguments");
+        }
+    }
 }
 public class CrewCreator : CreatorFTR
 {   
     public override Crew Create(string[] ObjectParameters)
     {
-        Type type = typeof(Crew);
-        int NumberOfRecords = type.GetFields().Length;
-        if (NumberOfRecords != ObjectParameters.Length)
-        {
-            Console.WriteLine(ObjectParameters[2]);
-            Console.WriteLine(NumberOfRecords.ToString());
-            Console.WriteLine(ObjectParameters.Length.ToString());
-            throw new ArgumentException("invalid number of arguments");
-        }
+        TestIfAllArguments(typeof(Crew),ObjectParameters.Length);
         
         string ClassName = ObjectParameters[0];
         UInt64 ID = UInt64.Parse(ObjectParameters[1]);
@@ -156,54 +158,131 @@ public class CrewCreator : CreatorFTR
         UInt64 Age = UInt64.Parse(ObjectParameters[3]);
         string Phone = ObjectParameters[4];
         string Email = ObjectParameters[5];
-        string Practice = ObjectParameters[6];
+        UInt16 Practice = UInt16.Parse(ObjectParameters[6]);
         string Role = ObjectParameters[7];
         
         return new Crew(ClassName,ID,Name,Age,Phone,Email,Practice,Role);
     }
 }
-/*
 public class PassengerCreator : CreatorFTR
 {
     public override Passenger Create(string[] ObjectParameters)
     {
-        return new Passenger();
+        TestIfAllArguments(typeof(Passenger), ObjectParameters.Length);
+
+        string ClassName = ObjectParameters[0];
+        UInt64 ID = UInt64.Parse(ObjectParameters[1]);
+        string Name = ObjectParameters[2];
+        UInt64 Age = UInt64.Parse(ObjectParameters[3]);
+        string Phone = ObjectParameters[4];
+        string Email = ObjectParameters[5];
+        string Class = ObjectParameters[6];
+        UInt64 Miles = UInt64.Parse(ObjectParameters[7]);
+
+        return new Passenger(ClassName, ID, Name, Age, Phone, Email, Class, Miles);
     }
 }
 public class CargoCreator : CreatorFTR
 {
     public override Cargo Create(string[] ObjectParameters)
     {
-        
-        return new Cargo();
+        TestIfAllArguments(typeof(Cargo), ObjectParameters.Length);
+
+        string ClassName = ObjectParameters[0];
+        UInt64 ID = UInt64.Parse(ObjectParameters[1]);
+        Single Weight = Single.Parse(ObjectParameters[2]);
+        string Code = ObjectParameters[3];
+        string Description = ObjectParameters[4];
+        return new Cargo(ClassName, ID,Weight,Code,Description);
     }
 }
 public class CargoPlaneCreator : CreatorFTR
 {
     public override CargoPlane Create(string[] ObjectParameters)
     {
-        return new CargoPlane();
+        TestIfAllArguments(typeof(CargoPlane), ObjectParameters.Length);
+
+        string ClassName = ObjectParameters[0];
+        UInt64 ID = UInt64.Parse(ObjectParameters[1]);
+        string Serial = ObjectParameters[2];
+        string Country = ObjectParameters[3];
+        string Model = ObjectParameters[4];
+        Single MaxLoad = Single.Parse(ObjectParameters[5]);
+
+        return new CargoPlane(ClassName, ID, Serial, Country, Model, MaxLoad);
     }
 }
 public class PassengerPlaneCreator : CreatorFTR
 {
     public override PassengerPlane Create(string[] ObjectParameters)
     {
-        return new PassengerPlane();
+        TestIfAllArguments(typeof(PassengerPlane), ObjectParameters.Length);
+
+        string ClassName = ObjectParameters[0];
+        UInt64 ID = UInt64.Parse(ObjectParameters[1]);
+        string Serial = ObjectParameters[2];
+        string Country = ObjectParameters[3];
+        string Model = ObjectParameters[4];
+        UInt16 FirstClassSize = UInt16.Parse(ObjectParameters[5]);
+        UInt16 BusinessClassSize = UInt16.Parse(ObjectParameters[6]);
+        UInt16 EconomyClassSize = UInt16.Parse(ObjectParameters[7]);
+        
+        return new PassengerPlane(ClassName, ID, Serial, Country, Model, FirstClassSize,BusinessClassSize,EconomyClassSize);
     }
 }
 public class AirportCreator : CreatorFTR
 {
     public override Airport Create(string[] ObjectParameters)
     {
-        return new Airport();
+        TestIfAllArguments(typeof(Airport), ObjectParameters.Length);
+
+        string ClassName = ObjectParameters[0];
+        UInt64 ID = UInt64.Parse(ObjectParameters[1]);
+        string Name = ObjectParameters[2];
+        string Code = ObjectParameters[3];
+        Single Longtitude = Single.Parse(ObjectParameters[4]);
+        Single Latitude = Single.Parse(ObjectParameters[5]);
+        Single AMSL = Single.Parse(ObjectParameters[6]);
+        string Country = ObjectParameters[7];
+
+        return new Airport(ClassName, ID, Name, Code, Longtitude, Latitude, AMSL, Country);
     }
 }
-public class FlightCreator : CreatorFTR
-{
-    public override Flight Create(string[] ObjectParameters)
+    public class FlightCreator : CreatorFTR
     {
-        return new Flight();
+        public override Flight Create(string[] ObjectParameters)
+        {
+            TestIfAllArguments(typeof(Flight), ObjectParameters.Length);
+
+            string ClassName = ObjectParameters[0];
+            UInt64 ID = UInt64.Parse(ObjectParameters[1]);
+            UInt64 OriginAsId = UInt64.Parse(ObjectParameters[2]);
+            UInt64 TargetAsId = UInt64.Parse(ObjectParameters[3]);
+            string TakeOffTime = ObjectParameters[4];
+            string LandingTime = ObjectParameters[5];
+            Single Longtitude = Single.Parse(ObjectParameters[6]);
+            Single Latitude = Single.Parse(ObjectParameters[7]);
+            Single AMSL = Single.Parse(ObjectParameters[8]);
+            UInt64 PlaneID = UInt64.Parse(ObjectParameters[9]);
+
+            string[] CrewAsIDsString = ObjectParameters[10].Trim(new char[] { '[', ']' }).Split(';');
+            UInt64[] CrewAsIDs = new UInt64[CrewAsIDsString.Length];
+            int j = 0;
+            foreach (var i in CrewAsIDsString)
+            {
+                CrewAsIDs[j++] = UInt64.Parse(i);
+            }
+
+            string[] LoadAsIDsString = ObjectParameters[11].Trim(new char[] { '[', ']' }).Split(';');
+            UInt64[] LoadAsIDs = new UInt64[LoadAsIDsString.Length];
+            j = 0;
+            foreach (var i in LoadAsIDsString)
+            {
+                LoadAsIDs[j++] = UInt64.Parse(i);
+            }
+
+            return new Flight(ClassName, ID, OriginAsId, TargetAsId, TakeOffTime, LandingTime, Longtitude, Latitude, AMSL, PlaneID, CrewAsIDs, LoadAsIDs);
+        }
     }
-}
-*/
+
+

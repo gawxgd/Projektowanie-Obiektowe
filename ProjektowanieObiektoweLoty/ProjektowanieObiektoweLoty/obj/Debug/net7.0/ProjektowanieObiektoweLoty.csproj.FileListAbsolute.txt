@@ -1,0 +1,14 @@
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.exe
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.deps.json
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.runtimeconfig.json
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\bin\Debug\net7.0\ProjektowanieObiektoweLoty.pdb
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.AssemblyInfoInputs.cache
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.AssemblyInfo.cs
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.csproj.CoreCompileInputs.cache
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\refint\ProjektowanieObiektoweLoty.dll
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.pdb
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ProjektowanieObiektoweLoty.genruntimeconfig.cache
+C:\Users\marci\source\repos\ProjektowanieObiektoweLoty\ProjektowanieObiektoweLoty\obj\Debug\net7.0\ref\ProjektowanieObiektoweLoty.dll

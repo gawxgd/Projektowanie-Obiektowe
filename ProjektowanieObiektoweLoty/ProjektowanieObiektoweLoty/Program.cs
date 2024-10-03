@@ -1,149 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ProjektowanieObiektoweLoty.Media;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ProjektowanieObiektoweLoty
 {
     public class Program
     {
-        private static string FilePath = "C:\\Users\\marci\\Downloads\\example_data.ftr";
-        static CrewCreator CrewFactory;
-        static PassengerCreator PassengerFactory;
-        static CargoCreator CargoFactory;
-        static CargoPlaneCreator CarogPlaneFactory;
-        static PassengerPlaneCreator PassengerPlaneFactory;
-        static AirportCreator AirportFactory;
-        static FlightCreator FlightFactory;
-        public static List<Crew> CrewObjectList;
-        public static List<Passenger> PassengerObjectList;
-        public static List<Cargo> CargoObjectList;
-        public static List<CargoPlane> CargoPlaneObjectList;
-        public static List<PassengerPlane> PassengerPlaneObjectList;
-        public static List<Airport> AirportObjectList;
-        public static List<Flight> FlightObjectList;
-        private static void ReadFromFtrFile(string FilePathArg)
-        {
-            String line;
-            try
-            {
-                StreamReader sr = new StreamReader(FilePath);
+        private static readonly string FilePath = "example_data.ftr";
+        private static readonly string NetworkFilePath = "example.ftre";
+        private static readonly string FtrSerializationFileName = "ftrJson.json";
+        private static readonly string NetworkSerializationFileName = "networkJson.json";
 
-                line = sr.ReadLine();
+        public static List<FtrObject> FtrObjectList;
+        public static List<FtrObject> NetworkObjectList;
 
-                while (line != null)
-                {
+        static int minOffsetInMins = 100;
+        static int maxOffsetInMins = 500;
+        private static Thread ConsoleThread;
 
-                   
-                    string[] ObjectParameters = line.Split(',');
-                    string ClassShortName = ObjectParameters[0];
-                    try
-                    {
-                        switch (ClassShortName)
-                        {
-                            case "C":
-                                CrewObjectList.Add(CrewFactory.Create(ObjectParameters));
-                 
-                                break;
-                            case "P":
-                                PassengerObjectList.Add(PassengerFactory.Create(ObjectParameters));
-                                
-                                break;
-                            case "CA":
-                                CargoObjectList.Add(CargoFactory.Create(ObjectParameters));
-                                break;
-                            case "CP":
-                                CargoPlaneObjectList.Add(CarogPlaneFactory.Create(ObjectParameters));
-                                break;
-                            case "PP":
-                                PassengerPlaneObjectList.Add(PassengerPlaneFactory.Create(ObjectParameters));
-                                break;
-                            case "AI":
-                                AirportObjectList.Add(AirportFactory.Create(ObjectParameters));
-                                break;
-                            case "FL":
-                                FlightObjectList.Add(FlightFactory.Create(ObjectParameters));
-                                break;
+        public static EventManger eventManager;
 
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        Console.WriteLine("Exception: " + e.Message);
-
-                    }
-
-                    line = sr.ReadLine();
-                }
-                
-
-                sr.Close();
-                
-            }
-            
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
-            }
-            
-            
-        }
-        private static void CreateFactoryClasses()
-        {
-            CrewFactory = new CrewCreator();
-            PassengerFactory = new PassengerCreator();
-            CargoFactory = new CargoCreator();
-            CarogPlaneFactory = new CargoPlaneCreator();
-            PassengerPlaneFactory = new PassengerPlaneCreator();
-            AirportFactory = new AirportCreator();
-            FlightFactory = new FlightCreator();         
-        }
-        public static void Serialize()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(SerializeList(AirportObjectList));
-            sb.Append("\n");
-            sb.Append(SerializeList(CargoPlaneObjectList));
-            sb.Append("\n");
-            sb.Append(SerializeList(PassengerPlaneObjectList));
-            sb.Append("\n");
-            sb.Append(SerializeList(CargoObjectList));
-            sb.Append("\n");
-            sb.Append(SerializeList(CrewObjectList));
-            sb.Append("\n");
-            sb.Append(SerializeList(PassengerObjectList));
-            sb.Append("\n");
-            sb.Append(SerializeList(FlightObjectList));
-            sb.Append("\n");
-            string jsonString = sb.ToString();
-            using (StreamWriter outputFile = new StreamWriter("jsonSerialize.json"))
-            {
-               outputFile.Write(jsonString);
-            }
-
-        }
-        public static string SerializeList<T>(List<T> ObjectList)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach(var Object in ObjectList)
-            {
-                sb.Append(Newtonsoft.Json.JsonConvert.SerializeObject(Object));
-                sb.Append("\n");
-            }
-            return sb.ToString();
-        }
         private static void InitializeLists()
         {
-            CrewObjectList = new List<Crew>();
-            PassengerObjectList = new List<Passenger>();
-            CargoObjectList = new List<Cargo>();
-            CargoPlaneObjectList = new List<CargoPlane>();
-            PassengerPlaneObjectList = new List<PassengerPlane>();
-            AirportObjectList = new List<Airport>();
-            FlightObjectList = new List<Flight>();
+            FtrObjectList = new List<FtrObject>();
+            NetworkObjectList = new List<FtrObject>();
         }
         private static void SetCulture()
         {
@@ -153,12 +34,54 @@ namespace ProjektowanieObiektoweLoty
         }
         static void Main()
         {
+            // Projekt 1
             SetCulture();
             InitializeLists();
-            CreateFactoryClasses();
-            ReadFromFtrFile(FilePath);
-            Serialize();
+            eventManager = new EventManger();
+            CreateFactories.CreateFactoryClasses();
+            CreateFactories.FillFactoryDictionary();
+            ReadFromFile.ReadFromFtrFile(FilePath);
+            SerializeJson.Serialize(NetworkObjectList,FtrSerializationFileName);
+            CreateFtrObject.InitalizeIdDictionaries();
+            Console.WriteLine("data read");
+
+            ConsoleThread = new Thread(() => ConsoleUser.Run());
+            ConsoleThread.Start();
+            //Projekt 2
+            //CreateFactories.FillNetworkDictionary();
+            //ConsoleThread = new Thread(() => ConsoleUser.Run());
+            //ConsoleThread.Start();
+            //ConnectWithNetwork ConnectWithNetworkObject = ConnectWithNetwork.GetInstance();
+            //ConnectWithNetworkObject.EstabilishConnection(NetworkFilePath,minOffsetInMins,maxOffsetInMins);
+            //try
+            //{
+            //    ReciveMessagesViaNetwork MessageReciver = new ReciveMessagesViaNetwork(ConnectWithNetworkObject);
+            //    MessageReciver.SubscribeNewDataReadyEvent();
+            //    ConnectWithNetworkObject.StartListeningToServer();
+            //}
+            //catch (Exception ex) 
+            //{
+            //    Console.WriteLine(ex.ToString());
+            //}
+            //ConsoleThread.Join();
+            //SerializeJson.Serialize(NetworkObjectList,NetworkSerializationFileName);
+            //Etap 3
+            //Etap 5
             
+            ConnectWithNetwork ConnectWithNetworkObject = ConnectWithNetwork.GetInstance();
+            ConnectWithNetworkObject.EstabilishConnection(NetworkFilePath, minOffsetInMins, maxOffsetInMins);
+            try
+            {
+                ReciveMessagesViaNetwork MessageReciver = new ReciveMessagesViaNetwork(ConnectWithNetworkObject,eventManager);
+                ConnectWithNetworkObject.StartListeningToServer();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            ConnectWithNetworkObject.JoinConnection();
+            ConsoleThread.Join();
+            Tools.UpdateLog.PrintToFile();
         }
     }
 }

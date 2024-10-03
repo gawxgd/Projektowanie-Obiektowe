@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjektowanieObiektoweLoty")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15eecd7a0f45373f4ebf404b802a8dbfa81b9eda")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjektowanieObiektoweLoty")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjektowanieObiektoweLoty")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

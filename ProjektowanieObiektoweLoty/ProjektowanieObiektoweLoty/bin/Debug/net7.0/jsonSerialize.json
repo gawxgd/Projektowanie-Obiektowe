@@ -8,7 +8,6 @@
 {"Name":"George Boole Airport","Code":"GBL","Longtitude":123.46,"Latitude":1.06,"AMSL":1672.15,"Country":"ITA","ClassName":"AI","ID":7}
 {"Name":"Alonzo Church Airport","Code":"ACH","Longtitude":93.54,"Latitude":-53.06,"AMSL":908.5,"Country":"BRA","ClassName":"AI","ID":8}
 {"Name":"Kurt Godel Airport","Code":"KGD","Longtitude":88.78,"Latitude":10.66,"AMSL":273.45,"Country":"IND","ClassName":"AI","ID":9}
-
 {"MaxLoad":300.0,"Serial":"E40042","Country":"USA","model":"VectorSum A330","ClassName":"CP","ID":10}
 {"MaxLoad":200.0,"Serial":"A97253","Country":"CAN","model":"IntegralLoad B757","ClassName":"CP","ID":11}
 {"MaxLoad":150.0,"Serial":"X00134","Country":"GBR","model":"MatrixCargo C130","ClassName":"CP","ID":12}
@@ -16,7 +15,6 @@
 {"MaxLoad":190.0,"Serial":"H46217","Country":"FRA","model":"FunctionLift E190","ClassName":"CP","ID":14}
 {"MaxLoad":600.0,"Serial":"V16515","Country":"JPN","model":"GeometryFreight F100","ClassName":"CP","ID":15}
 {"MaxLoad":330.0,"Serial":"L23623","Country":"AUS","model":"AlgebraLoad G650","ClassName":"CP","ID":16}
-
 {"FirstClassSize":2,"BusinessSize":14,"EconomyClassSize":24,"Serial":"Z15625","Country":"DEU","model":"PiFlyer A380","ClassName":"PP","ID":17}
 {"FirstClassSize":3,"BusinessSize":10,"EconomyClassSize":32,"Serial":"X82033","Country":"FRA","model":"DeltaWing B787","ClassName":"PP","ID":18}
 {"FirstClassSize":1,"BusinessSize":19,"EconomyClassSize":27,"Serial":"N19779","Country":"JPN","model":"SigmaJet C350","ClassName":"PP","ID":19}
@@ -24,7 +22,6 @@
 {"FirstClassSize":3,"BusinessSize":11,"EconomyClassSize":42,"Serial":"Z05228","Country":"ITA","model":"LambdaClass E170","ClassName":"PP","ID":21}
 {"FirstClassSize":4,"BusinessSize":12,"EconomyClassSize":21,"Serial":"W46842","Country":"BRA","model":"RhoRanger F220","ClassName":"PP","ID":22}
 {"FirstClassSize":2,"BusinessSize":10,"EconomyClassSize":25,"Serial":"T21064","Country":"IND","model":"EpsilonCruiser G280","ClassName":"PP","ID":23}
-
 {"Weight":18.77,"Code":"LRQ646","Description":"Electronics","ClassName":"CA","ID":24}
 {"Weight":33.49,"Code":"ZMI168","Description":"Pharmaceuticals","ClassName":"CA","ID":25}
 {"Weight":42.25,"Code":"KUU989","Description":"Perishable food items","ClassName":"CA","ID":26}
@@ -40,7 +37,6 @@
 {"Weight":20.18,"Code":"UZC279","Description":"Agricultural products","ClassName":"CA","ID":36}
 {"Weight":6.53,"Code":"CZT523","Description":"Seafood","ClassName":"CA","ID":37}
 {"Weight":21.28,"Code":"SAI554","Description":"Emergency supplies","ClassName":"CA","ID":38}
-
 {"Practice":11,"Role":"Captain","Name":"Arthur Montes","Age":36,"Phone":"743-220-9642","Email":"arthurmontes7885@gmail.com","ClassName":"C","ID":39}
 {"Practice":18,"Role":"Captain","Name":"Lauren Bryan","Age":38,"Phone":"572-184-2454","Email":"laurenbryan3050@gmail.com","ClassName":"C","ID":40}
 {"Practice":1,"Role":"Captain","Name":"Judy Murphy","Age":30,"Phone":"608-501-5175","Email":"judymurphy3354@gmail.com","ClassName":"C","ID":41}
@@ -331,7 +327,6 @@
 {"Practice":17,"Role":"Other","Name":"Leon Wilson","Age":60,"Phone":"558-744-5184","Email":"leonwilson1192@gmail.com","ClassName":"C","ID":326}
 {"Practice":17,"Role":"Other","Name":"David Jackson","Age":37,"Phone":"456-456-6222","Email":"davidjackson2881@gmail.com","ClassName":"C","ID":327}
 {"Practice":10,"Role":"Other","Name":"Scott Berry","Age":54,"Phone":"789-132-6944","Email":"scottberry9588@gmail.com","ClassName":"C","ID":328}
-
 {"Class":"First","Miles":2865,"Name":"Valerie Thompson","Age":37,"Phone":"303-567-8799","Email":"valeriethompson2395@gmail.com","ClassName":"P","ID":329}
 {"Class":"First","Miles":27117,"Name":"Timothy Middleton","Age":51,"Phone":"212-196-6002","Email":"timothymiddleton5884@gmail.com","ClassName":"P","ID":330}
 {"Class":"First","Miles":4101,"Name":"Melanie Johnson","Age":42,"Phone":"463-063-8944","Email":"melaniejohnson8590@gmail.com","ClassName":"P","ID":331}
@@ -982,7 +977,6 @@
 {"Class":"Economy","Miles":22470,"Name":"Eric Cervantes","Age":45,"Phone":"608-816-0570","Email":"ericcervantes6268@gmail.com","ClassName":"P","ID":976}
 {"Class":"Economy","Miles":10914,"Name":"Miranda Smith","Age":52,"Phone":"153-607-0628","Email":"mirandasmith7448@gmail.com","ClassName":"P","ID":977}
 {"Class":"Economy","Miles":16615,"Name":"Charles Higgins","Age":60,"Phone":"945-475-9592","Email":"charleshiggins9687@gmail.com","ClassName":"P","ID":978}
-
 {"OriginAsID":2,"TargetAsID":5,"TakeOffTime":"13:06","LandingTime":"20:17","Longtitude":110.41,"Latitude":12.7,"AMSL":11416.0,"PlaneID":21,"CrewAsIDs":[60,123,117,230,241,191,90,194,164],"LoadAsIDs":[351,361,343,392,432,387,457,405,396,429,452,389,606,515,728,572,909,623,908,885,929,778,847,872,584,949,795,741,625,527,868,867,884],"ClassName":"FL","ID":1038}
 {"OriginAsID":8,"TargetAsID":4,"TakeOffTime":"12:06","LandingTime":"13:43","Longtitude":151.22,"Latitude":-35.39,"AMSL":10639.0,"PlaneID":17,"CrewAsIDs":[65,160,90,93,82,142,113,127,291],"LoadAsIDs":[338,443,408,412,447,383,458,441,414,449,469,453,460,472,832,971,906,934,789,812,955,803,514,919,768,706,668,621,558,968,630,925,791,809,912,884,875,646],"ClassName":"FL","ID":1010}
 {"OriginAsID":8,"TargetAsID":7,"TakeOffTime":"07:18","LandingTime":"06:16","Longtitude":103.18,"Latitude":-48.31,"AMSL":9428.0,"PlaneID":23,"CrewAsIDs":[56,206,223,230,248,112,133,252,300],"LoadAsIDs":[362,359,467,385,383,417,380,419,449,439,617,625,843,848,766,498,903,883,503,501,808,771,805,733,729,618,706,518],"ClassName":"FL","ID":1021}
@@ -1183,4 +1177,3 @@
 {"OriginAsID":2,"TargetAsID":5,"TakeOffTime":"23:24","LandingTime":"23:06","Longtitude":99.32,"Latitude":-5.8,"AMSL":9609.0,"PlaneID":16,"CrewAsIDs":[44,230,279,319,314,315],"LoadAsIDs":[38,36,37,30,33,38,29,27,35,35,38,29,29,36,30,25,25],"ClassName":"FL","ID":1090}
 {"OriginAsID":5,"TargetAsID":9,"TakeOffTime":"18:44","LandingTime":"02:25","Longtitude":116.84,"Latitude":2.83,"AMSL":11181.0,"PlaneID":11,"CrewAsIDs":[66,122,226,302,297],"LoadAsIDs":[26,27,38,37,36,38,35,31],"ClassName":"FL","ID":1101}
 {"OriginAsID":0,"TargetAsID":8,"TakeOffTime":"08:45","LandingTime":"01:03","Longtitude":106.57,"Latitude":-35.89,"AMSL":9399.0,"PlaneID":16,"CrewAsIDs":[54,173,312,284,293],"LoadAsIDs":[28,38,34,30,35,24,24,38,28,30,32,27,25,32,36,29,36,29,35],"ClassName":"FL","ID":1122}
-
